@@ -10,8 +10,8 @@ var client = new Twitter({
   access_token_secret: configAPI.Access_token_secret
 })
 
-router.get('/:q', function (req, res) {
-  client.post('statuses/update', {status: req.query.q}, function (error, data, response) {
+router.post('/', function (req, res) {
+  client.post('statuses/update', {status: req.body.q}, function (error, data, response) {
     res.send(data)
   })
   // res.send('search')
